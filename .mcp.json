@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "shopify-admin-agent": {
+      "command": "node",
+      "args": ["mcp/server.js"]
+    }
+  }
+}

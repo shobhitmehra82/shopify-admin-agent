@@ -3,14 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node menu.js",
     "console": "node console.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mcp": "node mcp/server.js",
+    "server": "node server/index.js",
+    "web": "npm --prefix web run dev",
+    "chat": "node scripts/dev.js",
+    "build": "npm --prefix web install && npm --prefix web run build",
+    "test": "node scripts/smoke.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "dotenv": "^17.4.2"
+    "@anthropic-ai/sdk": "^0.123.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "zod": "^4.5.4"
   }
 }
