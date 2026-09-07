@@ -1,12 +1,4 @@
-// Two things matter here, both for the MCP server:
-//   quiet — dotenv's startup banner goes to stdout, and the MCP server talks
-//     JSON-RPC over stdout. One stray line there breaks the protocol.
-//   path  — dotenv resolves .env against the cwd, but an MCP client spawns the
-//     server from wherever it happens to be running. Anchor to this file.
-require("dotenv").config({
-  path: require("path").join(__dirname, ".env"),
-  quiet: true,
-});
+require("dotenv").config();
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
 const clientId = process.env.SHOPIFY_APP_CLIENT_ID;
 const clientSecret = process.env.SHOPIFY_APP_CLIENT_SECRET;
