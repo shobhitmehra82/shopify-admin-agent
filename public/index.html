@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="shopify-api-key" content="%%SHOPIFY_API_KEY%%" />
+  <script src="https://cdn.shopify.com/shopifyapps/app-bridge.js"></script>
+  <title>Shopify Admin Agent</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Shopify Admin Agent</h1>
+      <div class="status" id="status">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Connecting…</span>
+      </div>
+    </header>
+
+    <main class="chat" id="chat"></main>
+
+    <form class="composer" id="composer">
+      <textarea
+        id="input"
+        placeholder="Ask about inventory or update an order… (Enter to send, Shift+Enter for newline)"
+        rows="1"
+        autofocus
+      ></textarea>
+      <button type="submit" id="send">Send</button>
+    </form>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
