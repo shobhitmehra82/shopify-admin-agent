@@ -190,6 +190,8 @@ async function serveStatic(pathname, res) {
   return true;
 }
 
+const HEARTBEAT_INTERVAL_MS = 20_000;
+
 function handleEvents(req, res, searchParams) {
   if (!verifyRequestToken(searchParams.get('token'), res)) return;
 
@@ -200,8 +202,16 @@ function handleEvents(req, res, searchParams) {
   });
   res.write(': connected\n\n');
 
+  // Render's free-tier proxy (and similar hosts) drops connections that sit
+  // idle for ~100s. A periodic comment keeps bytes flowing without the
+  // browser treating it as a message.
+  const heartbeat = setInterval(() => res.write(': heartbeat\n\n'), HEARTBEAT_INTERVAL_MS);
+
   sseClients.add(res);
-  req.on('close', () => sseClients.delete(res));
+  req.on('close', () => {
+    clearInterval(heartbeat);
+    sseClients.delete(res);
+  });
 }
 
 async function readBody(req) {

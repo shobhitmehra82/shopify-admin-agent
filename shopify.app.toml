@@ -2,7 +2,7 @@
 
 client_id = "1d5fa74a0cd19957de4bd66227a19d0d"
 name = "admin-agent"
-application_url = "https://example.com"
+application_url = "https://shopify-admin-agent.onrender.com"
 embedded = true
 
 [webhooks]
