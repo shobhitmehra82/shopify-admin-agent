@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: shopify-admin-agent
+    env: docker
+    plan: free
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: SHOPIFY_STORE_DOMAIN
+        sync: false
+      - key: SHOPIFY_APP_CLIENT_ID
+        sync: false
+      - key: SHOPIFY_APP_CLIENT_SECRET
+        sync: false
